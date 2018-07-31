@@ -50,57 +50,16 @@ public class MainActivity extends AppCompatActivity {
         recyclerViewLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         productRecycler.setLayoutManager(recyclerViewLayoutManager);
 
-        productModelArrayList.add(new ProductModel("name 1"));
-        productModelArrayList.add(new ProductModel("name 2"));
-        productModelArrayList.add(new ProductModel("name 3"));
-        productModelArrayList.add(new ProductModel("name 4"));
-        productModelArrayList.add(new ProductModel("name 5"));
-        productModelArrayList.add(new ProductModel("name 6"));
-
-        //productsAdapter = new ProductsAdapter(productModelArrayList);
-       // productRecycler.setAdapter(productsAdapter);
-
-
-//        for (int i = 0; i < productModelArrayList.size(); i++) {
-//            final Handler handler = new Handler();
-//
-//            Runnable runnableCode = new Runnable() {
-//                @Override
-//                public void run() {
-//
-//
-//                    position++;
-//
-//                    productRecycler.getLayoutManager().scrollToPosition(position);
-//                    productRecycler.smoothScrollToPosition(position);
-//
-////                if (position == productModelArrayList.size()){
-////                    position =0;
-////                    position++;
-////                    }else {
-////                    position++;
-////
-////                }
-//
-//
-//                    // productRecycler.getLayoutManager().scrollToPosition(position);
-////                productRecycler.smoothScrollToPosition(position);
-//                }
-//
-//
-//            };
-//            handler.postDelayed(runnableCode, 2000);
-//        }
-//
-//
-//        //handler.post(runnableCode);
-//
-
+        productModelArrayList.add(new ProductModel("Image one",R.drawable.image1));
+        productModelArrayList.add(new ProductModel("Image two",R.drawable.image2));
+        productModelArrayList.add(new ProductModel("Image three",R.drawable.image3));
+        productModelArrayList.add(new ProductModel("Image four",R.drawable.image4));
+        productModelArrayList.add(new ProductModel("Image five",R.drawable.image5));
+        productModelArrayList.add(new ProductModel("Image six",R.drawable.image6));
 
         Handler handler1 = new Handler();
 
 
-     //   while (true) {
             for (a = 0; a <= productModelArrayList.size(); a++) {
                 final int finalA = a;
                 handler1.postDelayed(new Runnable() {
@@ -109,10 +68,7 @@ public class MainActivity extends AppCompatActivity {
                     public void run() {
                         productRecycler.getLayoutManager().scrollToPosition(finalA);
                         productRecycler.smoothScrollToPosition(finalA);
-
-
-
-                    }
+                        }
 
                 }, 3000 * a);
 
@@ -120,7 +76,6 @@ public class MainActivity extends AppCompatActivity {
             }
             productsAdapter = new ProductsAdapter(productModelArrayList);
             productRecycler.setAdapter(productsAdapter);
-       // }
 
 
 
