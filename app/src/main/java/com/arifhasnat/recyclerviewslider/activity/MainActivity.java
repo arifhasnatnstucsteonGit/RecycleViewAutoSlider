@@ -34,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
     Timer timer;
     public int position = 0;
 
+    public int a = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,6 +56,9 @@ public class MainActivity extends AppCompatActivity {
         productModelArrayList.add(new ProductModel("name 4"));
         productModelArrayList.add(new ProductModel("name 5"));
         productModelArrayList.add(new ProductModel("name 6"));
+
+        //productsAdapter = new ProductsAdapter(productModelArrayList);
+       // productRecycler.setAdapter(productsAdapter);
 
 
 //        for (int i = 0; i < productModelArrayList.size(); i++) {
@@ -92,39 +97,33 @@ public class MainActivity extends AppCompatActivity {
 //
 
 
-
-
-        int a=0;
         Handler handler1 = new Handler();
-        for ( a = 0; a<=productModelArrayList.size() ;a++) {
 
 
-            final int finalA = a;
-            handler1.postDelayed(new Runnable() {
+     //   while (true) {
+            for (a = 0; a <= productModelArrayList.size(); a++) {
+                final int finalA = a;
+                handler1.postDelayed(new Runnable() {
 
-                @Override
-                public void run() {
-                    productRecycler.getLayoutManager().scrollToPosition(finalA);
-                    productRecycler.smoothScrollToPosition(finalA);
-
-
-                }
-
-
-
-            }, 3000 * a);
-
-
-//            if (a == productModelArrayList.size()){
-//                a = 0;
-//            }
-
-        }
+                    @Override
+                    public void run() {
+                        productRecycler.getLayoutManager().scrollToPosition(finalA);
+                        productRecycler.smoothScrollToPosition(finalA);
 
 
 
-        productsAdapter = new ProductsAdapter(productModelArrayList);
-        productRecycler.setAdapter(productsAdapter);
+                    }
+
+                }, 3000 * a);
+
+
+            }
+            productsAdapter = new ProductsAdapter(productModelArrayList);
+            productRecycler.setAdapter(productsAdapter);
+       // }
+
+
+
 
 
     }
